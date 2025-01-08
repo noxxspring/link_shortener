@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import noxxspring.link_shortener.Model.ClickEvent;
 import noxxspring.link_shortener.Model.User;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
