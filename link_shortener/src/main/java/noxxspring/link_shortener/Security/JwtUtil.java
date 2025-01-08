@@ -22,7 +22,7 @@ public class JwtUtil {
     private String secretJwtString;
 
     // extract token from header
-    public String hetTokenFromHeader(HttpServletRequest request){
+    public String getTokenFromHeader(HttpServletRequest request){
         String bearerToken = request.getHeader("Authorization");
         if(bearerToken != null && bearerToken.startsWith("Bearer ")){
             return bearerToken.substring(7);
