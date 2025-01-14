@@ -8,4 +8,6 @@ public interface UserService {
     public User registerUser (User user);
 
     public JwtAuthResponse loginUser (LoginRequest loginRequest);
+
+    public User findByUsername (String name);
 }

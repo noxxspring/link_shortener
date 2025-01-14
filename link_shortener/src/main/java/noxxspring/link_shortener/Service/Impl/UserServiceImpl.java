@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +40,11 @@ public class UserServiceImpl implements noxxspring.link_shortener.Service.Interf
         String jwt = jwtUtil.generateToken(authUser);
         return new JwtAuthResponse(jwt);
 
+    }
+
+    @Override
+    public User findByUsername(String name) {
+        return userRepository.findByUsername(name)
+                .orElseThrow(() -> new UsernameNotFoundException("user not found " + name));
     }
 }
